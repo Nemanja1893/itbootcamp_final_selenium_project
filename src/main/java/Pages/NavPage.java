@@ -24,4 +24,8 @@ public class NavPage extends BasePage{
     public WebElement getLogoutButton(){
         return wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".btnLogout"))));
     }
+    public WebElement getSignupLink(){
+        return driver.findElement(By.cssSelector("a[href='/signup']"));
+    }
+
 }

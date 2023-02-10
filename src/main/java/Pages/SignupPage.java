@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage extends BasePage{
+public class SignupPage extends BasePage{
 
-    public LoginPage(WebDriver driver, WebDriverWait wait) {
+    public SignupPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
 
@@ -17,8 +17,14 @@ public class LoginPage extends BasePage{
     public WebElement getPasswordInput(){
         return driver.findElement(By.cssSelector("#password"));
     }
-
-    public WebElement getLoginButton(){
+    public WebElement getConfirmPasswordInput(){
+        return driver.findElement(By.cssSelector("#confirmPassword"));
+    }
+    public WebElement getNameInput(){
+        return driver.findElement(By.cssSelector("#name"));
+    }
+    public WebElement getSignupButton(){
         return driver.findElement(By.cssSelector("*[type='submit']"));
     }
+
 }

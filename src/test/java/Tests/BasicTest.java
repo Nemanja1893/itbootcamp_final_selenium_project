@@ -1,11 +1,14 @@
 package Tests;
 
 import Pages.LoginPage;
+import Pages.MessagePopUpPage;
 import Pages.NavPage;
+import Pages.SignupPage;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -29,6 +32,9 @@ public abstract class BasicTest {
     protected String baseUrl = "https://vue-demo.daniel-avellaneda.com";
     protected LoginPage loginPage;
     protected NavPage navPage;
+    protected SignupPage signupPage;
+    protected MessagePopUpPage messagePopUpPage;
+
     @BeforeClass
     public void setup(){
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
@@ -40,6 +46,10 @@ public abstract class BasicTest {
         driver.manage().window().maximize();
         loginPage = new LoginPage(driver, wait);
         navPage = new NavPage(driver, wait);
+        signupPage = new SignupPage(driver, wait);
+        messagePopUpPage = new MessagePopUpPage(driver, wait);
+
+
     }
     @BeforeMethod
     public void beforeMethod(){
@@ -62,5 +72,8 @@ public abstract class BasicTest {
     protected void CheckUrl(String route){
         Assert.assertEquals(driver.getCurrentUrl(), baseUrl + route,
                 "Url is incorrect");
+    }
+    protected void waitForUrl(String route){
+        wait.until(ExpectedConditions.urlContains(route));
     }
 }

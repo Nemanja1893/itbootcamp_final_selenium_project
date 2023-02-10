@@ -40,9 +40,9 @@ public class LoginTests extends BasicTest{
         loginPage.getPasswordInput().sendKeys(password);
         loginPage.getLoginButton().click();
 
-        wait.until(ExpectedConditions.visibilityOf(loginPage.getStatusPopUp()));
+        wait.until(ExpectedConditions.visibilityOf(messagePopUpPage.getStatusPopUp()));
 
-        Assert.assertEquals(loginPage.getStatusErrorMessage().getText(),
+        Assert.assertEquals(messagePopUpPage.getStatusErrorMessage().getText(),
                                 "User does not exists",
                                         "Error message is incorrect");
 
@@ -59,9 +59,9 @@ public class LoginTests extends BasicTest{
         loginPage.getPasswordInput().sendKeys(password);
         loginPage.getLoginButton().click();
 
-        wait.until(ExpectedConditions.visibilityOf(loginPage.getStatusPopUp()));
+        wait.until(ExpectedConditions.visibilityOf(messagePopUpPage.getStatusPopUp()));
 
-        Assert.assertEquals(loginPage.getStatusErrorMessage().getText(),
+        Assert.assertEquals(messagePopUpPage.getStatusErrorMessage().getText(),
                 "Wrong password",
                 "Error message is incorrect");
 
