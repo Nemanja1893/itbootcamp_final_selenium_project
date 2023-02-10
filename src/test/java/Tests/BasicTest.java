@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.LoginPage;
-import Pages.MessagePopUpPage;
-import Pages.NavPage;
-import Pages.SignupPage;
+import Pages.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -34,6 +31,7 @@ public abstract class BasicTest {
     protected NavPage navPage;
     protected SignupPage signupPage;
     protected MessagePopUpPage messagePopUpPage;
+    protected CitiesPage citiesPage;
 
     @BeforeClass
     public void setup(){
@@ -48,6 +46,7 @@ public abstract class BasicTest {
         navPage = new NavPage(driver, wait);
         signupPage = new SignupPage(driver, wait);
         messagePopUpPage = new MessagePopUpPage(driver, wait);
+        citiesPage = new CitiesPage(driver, wait);
 
 
     }

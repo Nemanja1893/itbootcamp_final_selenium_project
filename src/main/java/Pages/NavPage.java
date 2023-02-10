@@ -27,5 +27,11 @@ public class NavPage extends BasePage{
     public WebElement getSignupLink(){
         return driver.findElement(By.cssSelector("a[href='/signup']"));
     }
+    public WebElement getAdminButton(){
+        return driver.findElement(By.cssSelector(".btnAdmin"));
+    }
+    public WebElement getCitiesLink(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".btnAdminCities")));
+    }
 
 }
