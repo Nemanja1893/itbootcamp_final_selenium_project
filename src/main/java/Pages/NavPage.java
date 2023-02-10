@@ -16,7 +16,27 @@ public class NavPage extends BasePage{
         return driver.findElement(By.cssSelector(".btnLocaleActivation"));
     }
     public WebElement getEnFromDropDown(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#list-item-73")));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By
+                .cssSelector(".v-menu__content .v-list-item:nth-child(1)")));
+    }
+    public WebElement getEsFromDropDown(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By
+                .cssSelector(".v-menu__content .v-list-item:nth-child(2)")));
+    }
+    public WebElement getFrFromDropDown(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By
+                .cssSelector(".v-menu__content .v-list-item:nth-child(3)")));
+    }
+    public WebElement getCnFromDropDown(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By
+                .cssSelector(".v-menu__content .v-list-item:nth-child(4)")));
+    }
+    public WebElement getUaFromDropDown(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By
+                .cssSelector(".v-menu__content .v-list-item:nth-child(5)")));
+    }
+    public WebElement getPageHeader(){
+        return driver.findElement(By.cssSelector("h1"));
     }
     public WebElement getLoginButton(){
         return driver.findElement(By.cssSelector("a[href='/login']"));
