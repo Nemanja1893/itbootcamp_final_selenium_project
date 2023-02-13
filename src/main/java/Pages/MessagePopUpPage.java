@@ -18,7 +18,7 @@ public class MessagePopUpPage extends BasePage{
         return driver.findElement(By.cssSelector(".btnClose"));
     }
     public WebElement getVerifyAccountMessage(){
-        return driver.findElement(By.cssSelector("dlgVerifyAccount"));
+        return driver.findElement(By.cssSelector(".dlgVerifyAccount"));
     }
     public WebElement getStatusPopUp(){
         return driver.findElement(By.cssSelector("*[role='status']"));

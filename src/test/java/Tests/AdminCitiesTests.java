@@ -1,6 +1,7 @@
 package Tests;
 
 import com.sun.org.glassfish.gmbal.Description;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -70,7 +71,9 @@ public class AdminCitiesTests extends BasicTest{
         citiesPage.getEditButton(1).click();
 
         wait.until(ExpectedConditions.visibilityOf(citiesPage.getEditItemDialog()));
-        citiesPage.getEditItemInput().clear();
+        citiesPage.getEditItemInput().click();
+        citiesPage.getEditItemInput().sendKeys(Keys.CONTROL + "a");
+        citiesPage.getEditItemInput().sendKeys(Keys.BACK_SPACE);
         citiesPage.getEditItemInput().sendKeys(newCityName);
         citiesPage.getEditItemSaveButton().click();
 
