@@ -1,9 +1,13 @@
 package Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.lang.reflect.Method;
 
 public class ProfilePage extends BasePage{
 
@@ -13,6 +17,11 @@ public class ProfilePage extends BasePage{
 
     public WebElement getEmailInput(){
         return driver.findElement(By.cssSelector("#email"));
+    }
+    public WebElement getProgressbar(){
+        return wait.until(ExpectedConditions
+                .visibilityOfElementLocated(By
+                .cssSelector(".v-dialog--persistent")));
     }
     public WebElement getNameInput(){
         return driver.findElement(By.cssSelector("#name"));
@@ -37,6 +46,14 @@ public class ProfilePage extends BasePage{
     }
     public WebElement getSuccessPopup(){
         return driver.findElement(By.cssSelector(".success"));
+    }
+    public void clearData(WebElement element){
+        element.click();
+        element.sendKeys(Keys.CONTROL + "a");
+        element.sendKeys(Keys.BACK_SPACE);
+    }
+    public WebElement getSuccessDiv(){
+        return driver.findElement(By.cssSelector(".success div[role='status']"));
     }
 
 }

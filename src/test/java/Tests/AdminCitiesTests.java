@@ -125,6 +125,5 @@ public class AdminCitiesTests extends BasicTest{
                 .getText()
                 .contains("Deleted successfully"),"Message is incorrect");
 
-
     }
 }
