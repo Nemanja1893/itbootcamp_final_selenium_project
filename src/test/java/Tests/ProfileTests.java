@@ -27,6 +27,9 @@ public class ProfileTests extends BasicTest {
 
         wait.until(ExpectedConditions.invisibilityOf(profilePage.getProgressbar()));
 
+        Assert.assertEquals(profilePage.getEmailInput().getAttribute("value"),
+                "admin@admin.com",
+                "Email input is incorrect");
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
 //
 //        String emailValue = (String) js.executeScript("return arguments[0].getAttribute('value');",
@@ -94,7 +97,7 @@ public class ProfileTests extends BasicTest {
         String city = "Bucaramanga";
         String country = "Spain";
         String twitter = "https://twitter.com/profile/milan1232";
-        String gitHub = "https://github.com/Nemanja1893";
+        String gitHub = "https://github.com/nemanja1893";
 
         navPage.getLoginButton().click();
 
@@ -132,36 +135,24 @@ public class ProfileTests extends BasicTest {
         Assert.assertTrue(profilePage.getSuccessDiv().getText().contains("Profile saved successfuly"),
                 "Message is incorrect");
 
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-
-//        String emailValue = (String) js.executeScript("return arguments[0].getAttribute('value');",
-//                profilePage.getEmailInput());
-//        Assert.assertEquals(emailValue, email,"Value is incorrect");
-//
-//        String nameValue = (String) js.executeScript("return arguments[0].getAttribute('value');",
-//                profilePage.getNameInput());
-//        System.out.println(nameValue);
-//        Assert.assertEquals(nameValue, name,"Value is incorrect");
-//
-//        String phoneValue = (String) js.executeScript("return arguments[0].getAttribute('value');",
-//                profilePage.getPhoneInput());
-//        Assert.assertEquals(phoneValue, phone,"Value is incorrect");
-//
-//        String cityValue = (String) js.executeScript("return arguments[0].getAttribute('value');",
-//                profilePage.getCityInput());
-//        Assert.assertEquals(cityValue, city,"Value is incorrect");
-//
-//        String countryValue = (String) js.executeScript("return arguments[0].getAttribute('value');",
-//                profilePage.getCountryInput());
-//        Assert.assertEquals(countryValue, country,"Value is incorrect");
-//
-//        String twitterValue = (String) js.executeScript("return arguments[0].getAttribute('value');",
-//                profilePage.getTwitterUrlInput());
-//        Assert.assertEquals(twitterValue, twitter,"Value is incorrect");
-//
-//        String githubValue = (String) js.executeScript("return arguments[0].getAttribute('value');",
-//                profilePage.getGitHubUrlInput());
-//        Assert.assertEquals(githubValue, gitHub,"Value is incorrect");
+        Assert.assertEquals(profilePage.getNameInput().getAttribute("value"),
+                name,
+                "Value is incorrect");
+        Assert.assertEquals(profilePage.getPhoneInput().getAttribute("value"),
+                phone,
+                "Value is incorrect");
+        Assert.assertEquals(profilePage.getCityInput().getAttribute("value"),
+                city,
+                "Value is incorrect");
+        Assert.assertEquals(profilePage.getCountryInput().getAttribute("value"),
+                country,
+                "Value is incorrect");
+        Assert.assertEquals(profilePage.getTwitterUrlInput().getAttribute("value"),
+                twitter,
+                "Value is incorrect");
+        Assert.assertEquals(profilePage.getGitHubUrlInput().getAttribute("value"),
+                gitHub,
+                "Value is incorrect");
 
         navPage.getLogoutButton().click();
     }
